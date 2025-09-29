@@ -17,3 +17,11 @@ INSERT INTO users (email, password, role) VALUES
 '$2b$10$382cEJJYi5YxSBNvWmufHeoPHX3dqIB9NP2R2XWzt/w.DnC0gmCr2', 'user'),
 ('admin@ifrs.edu.br',
 '$2b$10$/JLXJ62EBlk1bNq0xmpvMuTLDJb6AWmZUs74lgEJb4Z.J9.3kFJM.', 'admin');
+-- crir tabela de eventos
+CREATE TABLE IF NOT EXISTS eventos (
+id INT AUTO_INCREMENT PRIMARY KEY,
+titulo VARCHAR(255) NOT NULL UNIQUE,
+descrição VARCHAR(255) NOT NULL,
+data_hora DATETIME NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
