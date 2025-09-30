@@ -38,6 +38,21 @@ export function AuthProvider({ children }) {
       setUser(null);
     }
   }
+  // Registra um novo evento (só admin pode)
+  // async function registerEvent({ titulo, descricao, data, hora }) {
+  //   const { data } = await http.post("/admin/eventos", { titulo, descricao, data, hora });
+  //   if (!data?.token) throw new Error("Token ausente na resposta");
+  //   localStorage.setItem("token", data.token);
+  //   setToken(data.token);
+  //   if (data?.user) {
+  //     localStorage.setItem("user", JSON.stringify(data.user));
+  //     setUser(data.user);
+  //   } else {
+  //     // fallback defensivo
+  //     localStorage.removeItem("user");
+  //     setUser(null);
+  //   }
+  // }
   // Encerra sessão
   function logout() {
     localStorage.removeItem("token");

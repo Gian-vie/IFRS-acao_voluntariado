@@ -1,3 +1,13 @@
+const mysql = require("mysql2");
+
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  multipleStatements: true,
+});
+
+const sql = `
 -- Cria o banco de dados se não existir
 CREATE DATABASE IF NOT EXISTS acao_voluntarioado CHARACTER SET utf8mb4 COLLATE
 utf8mb4_unicode_ci;
@@ -11,12 +21,6 @@ password VARCHAR(255) NOT NULL,
 role VARCHAR(50) NOT NULL DEFAULT 'user',
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
--- Insere dois tipos de usuários
-INSERT INTO users (email, password, role) VALUES
-('usuario@ifrs.edu.br',
-'$2b$10$382cEJJYi5YxSBNvWmufHeoPHX3dqIB9NP2R2XWzt/w.DnC0gmCr2', 'user'),
-('admin@ifrs.edu.br',
-'$2b$10$/JLXJ62EBlk1bNq0xmpvMuTLDJb6AWmZUs74lgEJb4Z.J9.3kFJM.', 'admin');
 -- crir tabela de eventos
 CREATE TABLE IF NOT EXISTS eventos (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -25,3 +29,13 @@ descricao VARCHAR(255) NOT NULL,
 data_hora DATETIME NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+`;
+
+connection.query(sql, (err, results) => {
+  if (err) {
+    console.error("Erro ao criar banco de dados:", err);
+  } else {
+    console.log("Banco de dados e tabelas criados com sucesso!");
+  }
+  connection.end();
+});

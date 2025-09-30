@@ -1,3 +1,5 @@
+const EventosService = require("../services/eventosService");
+
 // Controlador responsável por lidar com rotas protegidas por autenticação JWT
 class ProtectedController {
   // Método que responde ao painel do usuário autenticado
@@ -31,6 +33,18 @@ class ProtectedController {
           message: "Erro ao acessar a área admin",
           error: error.message,
         });
+    }
+  }
+  //metodo estatic que trata o registro de um novo evento
+  static async registerEvent(req, res) {
+    try {
+      // Chama o serviço para registrar o evento, passando os dados da requisição
+      const result = await EventosService.registerEvent(req.body);
+      // Retorna status 201 (Criado) com os dados retornados pelo serviço
+      return res.status(201).json(result);
+    } catch (error) {
+      // Em caso de erro (ex: evento já existe), retorna status 409 (Conflito) com a mensagem do erro
+      return res.status(409).json({ message: error.message });
     }
   }
 }
