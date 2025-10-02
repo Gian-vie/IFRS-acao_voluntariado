@@ -79,7 +79,7 @@ export default function RegisterEventForm() {
           required
         />
       </div>
-      <button type="submit" disabled={loading}>
+      <button type="submit" disabled={loading} className="btn">
         {loading ? "Registrando..." : "Registrar Evento"}
       </button>
       {error && <div style={{ color: "red" }}>{error}</div>}

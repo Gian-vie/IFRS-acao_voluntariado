@@ -1,13 +1,13 @@
 // Rota protegida por RequireAuth + RequireRole('admin').
 import { useEffect, useState } from "react";
 import { http } from "../api/http";
-import ButtonRegEvent from "../components/ButtonRegEvent";
+import RegisterEventForm from "../components/RegisterEventForm";
 export default function Admin() {
   const [msg, setMsg] = useState("Carregando...");
 
   useEffect(() => {
     http
-      .get("/protected/admin")
+      .get("/protected/admin/eventos")
       .then(({ data }) => setMsg(data.message)) // ex.: "Bem-vindo à área admin, email"
       .catch(() => setMsg("Acesso negado"));
   }, []);
@@ -15,7 +15,7 @@ export default function Admin() {
     <section className="card">
       <h1>Área Administrativa</h1>
       <p>{msg}</p>
-      <ButtonRegEvent />
+      <RegisterEventForm />
     </section>
   );
 }

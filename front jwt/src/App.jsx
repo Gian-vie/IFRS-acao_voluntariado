@@ -52,6 +52,16 @@ const router = createBrowserRouter([
           </RequireAuth>
         ),
       },
+      {
+        path: "admin/eventos",
+        element: (
+          <RequireAuth>
+            <RequireRole role="admin">
+              <AdminEventos />
+            </RequireRole>
+          </RequireAuth>
+        ),
+      },
       // fallback interno (opcional)
       { path: "*", element: <NotFound /> },
     ],
