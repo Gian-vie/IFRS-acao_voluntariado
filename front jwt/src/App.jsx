@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Forbidden from "./pages/Forbidden";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
+import AdminEventos from "./pages/AdminEventos";
 // (Opcional) Fallback simples para rotas inexistentes
 function NotFound() {
   return (

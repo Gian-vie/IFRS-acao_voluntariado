@@ -8,7 +8,7 @@ export default function Navbar() {
     <header className="navbar">
       <nav className="navbar-inner">
         {/* brand separado da lista de links */}
-        <div className="brand">CorpApps</div>
+        <div className="brand">Ações IFRS</div>
         <ul className="nav-links">
           <li>
             <NavLink
