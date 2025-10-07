@@ -39,19 +39,9 @@ export function AuthProvider({ children }) {
     }
   }
   // Registra um novo evento (só admin pode)
-  async function registerEvent({ titulo, descricao, date, hora }) {
-    const { data } = await http.post("/admin/eventos", { titulo, descricao, date, hora });
-    if (!data?.token) throw new Error("Token ausente na resposta");
-    localStorage.setItem("token", data.token);
-    setToken(data.token);
-    if (data?.user) {
-      localStorage.setItem("user", JSON.stringify(data.user));
-      setUser(data.user);
-    } else {
-      // fallback defensivo
-      localStorage.removeItem("user");
-      setUser(null);
-    }
+  async function registerEvent({ titulo, descricao, data, hora }) {
+    const { data: response } = await http.post("/protected/admin/eventos", { titulo, descricao, data, hora });
+    return response;
   }
   // Encerra sessão
   function logout() {

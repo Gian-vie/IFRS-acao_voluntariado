@@ -3,8 +3,13 @@ const db = require("../config/database");
 class EventosModel {
   // Busca um evento pelo ID
   static async findById(id) {
-    const [rows] = await db.query("SELECT * FROM eventos WHERE id = ?", [
-      id,
+    const [rows] = await db.query("SELECT * FROM eventos WHERE id = ?", [id]);
+    return rows[0];
+  }
+  // Busca um evento pelo título
+  static async findByTitle(titulo) {
+    const [rows] = await db.query("SELECT * FROM eventos WHERE titulo = ?", [
+      titulo,
     ]);
     return rows[0];
   }
