@@ -62,7 +62,7 @@ export function AuthProvider({ children }) {
   }
   // Valor do contexto memoizado (evita re-renders desnecessários)
   const value = useMemo(
-    () => ({ token, user, login, logout, loading }),
+    () => ({ token, user, login, registerEvent, logout, loading }),
     [token, user, loading]
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

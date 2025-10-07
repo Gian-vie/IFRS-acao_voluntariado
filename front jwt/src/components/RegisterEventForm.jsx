@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../auth/AuthContext";
 
 export default function RegisterEventForm() {
-  const { registerEvent, user } = useAuth();
+  const { user, registerEvent } = useAuth();
   const [form, setForm] = useState({
     titulo: "",
     descricao: "",
@@ -47,7 +47,7 @@ export default function RegisterEventForm() {
           name="titulo"
           value={form.titulo}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
       <div>
@@ -56,7 +56,7 @@ export default function RegisterEventForm() {
           name="descricao"
           value={form.descricao}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
       <div>
@@ -66,7 +66,7 @@ export default function RegisterEventForm() {
           name="data"
           value={form.data}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
       <div>
@@ -76,7 +76,7 @@ export default function RegisterEventForm() {
           name="hora"
           value={form.hora}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
       <button type="submit" disabled={loading} className="btn">

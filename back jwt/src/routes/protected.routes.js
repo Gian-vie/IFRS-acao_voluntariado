@@ -23,6 +23,12 @@ router.get(
   authorizeRole("admin"),
   ProtectedController.registerEvent
 );
+router.post(
+  "/admin/eventos",
+  authenticateToken,
+  authorizeRole("admin"),
+  ProtectedController.registerEvent
+);
 // Define a rota GET /admin que chama o método adminOnly do ProtectedController
 module.exports = router;
 // Exporta o roteador configurado para ser utilizado na aplicação

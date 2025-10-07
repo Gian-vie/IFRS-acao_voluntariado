@@ -7,7 +7,7 @@ export default function Admin() {
 
   useEffect(() => {
     http
-      .get("/protected/admin/eventos")
+      .get("/protected/admin")
       .then(({ data }) => setMsg(data.message)) // ex.: "Bem-vindo à área admin, email"
       .catch(() => setMsg("Acesso negado"));
   }, []);
