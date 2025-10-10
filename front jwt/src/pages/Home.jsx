@@ -1,3 +1,4 @@
+import EventList from "../components/EventList";
 // Página pública simples de boas-vindas.
 export default function Home() {
   return (
@@ -5,6 +6,7 @@ export default function Home() {
       <h1>Home</h1>
       <p>Bem-vindo! Esta é uma rota pública da aplicação.</p>
       <div children="">
+      <EventList />
 
       </div>
     </section>

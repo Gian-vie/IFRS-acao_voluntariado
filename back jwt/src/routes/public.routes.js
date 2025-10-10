@@ -5,6 +5,7 @@ const PublicController = require('../controllers/public.controller');
 const router = express.Router();
 // Cria uma nova instância do roteador do Express para as rotas públicas
 router.get('/home', PublicController.home);
+router.get('/event-list', PublicController.eventList);
 // Define a rota GET /home que chama o método home do PublicController
 module.exports = router;
 // Exporta o roteador configurado para ser utilizado na aplicação

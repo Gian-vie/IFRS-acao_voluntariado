@@ -11,6 +11,7 @@ password VARCHAR(255) NOT NULL,
 role VARCHAR(50) NOT NULL DEFAULT 'user',
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 -- Insere dois tipos de usuários
 INSERT INTO users (email, password, role) VALUES
 ('usuario@ifrs.edu.br',
@@ -22,6 +23,24 @@ CREATE TABLE IF NOT EXISTS eventos (
 id INT AUTO_INCREMENT PRIMARY KEY,
 titulo VARCHAR(255) NOT NULL UNIQUE,
 descricao VARCHAR(255) NOT NULL,
-data_hora DATETIME NOT NULL,
+data DATE NOT NULL,
+hora TIME NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS inscricoes_eventos (
+id_usuario INT NOT NULL,
+id_evento INT NOT NULL,
+data_inscricao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+-- Define a chave estrangeira que referencia a tabela 'users'
+FOREIGN KEY (id_usuario) REFERENCES users(id)
+ON DELETE CASCADE -- Se um usuário for deletado, suas inscrições também são
+ON UPDATE CASCADE, -- Se o ID de um usuário for atualizado, atualiza aqui também
+-- Define a chave estrangeira que referencia a tabela 'eventos'
+FOREIGN KEY (id_evento) REFERENCES eventos(id)
+ON DELETE CASCADE -- Se um evento for deletado, suas inscrições também são
+ON UPDATE CASCADE,
+-- Define uma chave primária composta para garantir que um usuário
+-- não possa se inscrever no mesmo evento mais de uma vez.
+PRIMARY KEY (id_usuario, id_evento)
 );

@@ -9,12 +9,12 @@ class EventosService {
     if (existing) {
       throw new Error("Já existe um evento com este título");
     }
-    const data_hora = `${data} ${hora}:00`;
     // Cria o novo evento e retorna seu ID
     const id = await eventosModel.create({
       titulo,
       descricao,
-      data: data_hora,
+      data,
+      hora
     });
     // Retorna os dados de sucesso (sem lançar erro)
     return { message: "Evento registrado com sucesso", id };
