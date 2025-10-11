@@ -20,8 +20,19 @@ class PublicController {
   static async eventList(req, res) {
     try {
       const eventos = await EventosModel.findAll();
-      console.log(res.status(200).json(eventos));
-      return res.status(200).json(eventos);
+      
+      const eventosFormatados = eventos.map(evento => ({
+        ...evento,
+        data: new Date(evento.data).toISOString().split('T')[0],
+        hora: evento.hora.slice(0, 5),
+      }));
+
+      const eventDataFormat = eventosFormatados.map(evento => ({
+        ...evento,
+        data: evento.data.split('-').reverse().join('/'),
+      }));
+
+      return res.status(200).json(eventDataFormat);
     } catch (error) {
       // Em caso de erro inesperado, retorna status 500 com a mensagem do erro
       return res

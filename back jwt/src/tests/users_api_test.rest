@@ -63,3 +63,7 @@ Authorization: Bearer {{userToken}}
 # O token do administrador é puxado da variável @adminToken.
 GET {{baseURL}}/protected/admin
 Authorization: Bearer {{adminToken}}
+
+### Listar todos os eventos (rota pública)
+GET {{baseURL}}/public/event-list
+Content-Type: application/json
