@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { http } from "../api/http";
 import { useNavigate } from "react-router-dom";
+import "../styles/eventList.css"
 
 export default function EventList() {
   const navigate = useNavigate(); // Adicione esta linha
@@ -43,7 +44,7 @@ export default function EventList() {
             <div className="event-content">
               <h3 className="event-title">{ev.titulo}</h3>
               <p className="event-description">{ev.descricao}</p>
-              <div className="event-details">
+              <div className="event-details-list">
                 <span className="event-date">
                   <i className="far fa-calendar"></i> 
                   {ev.data}
