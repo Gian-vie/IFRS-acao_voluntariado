@@ -31,33 +31,28 @@ export default function EventList() {
   if (eventos.length === 0) return <div>Nenhum evento cadastrado.</div>;
 
   return (
-    <div>
-      <h2>Lista de Eventos</h2>
-      <ul>
+    <div className="events-container">
+      <h2 className="events-title">Eventos Disponíveis</h2>
+      <ul className="events-grid">
         {eventos.map((ev) => (
           <li
             key={ev.id}
+            className="event-card"
             onClick={() => handleEventClick(ev.id)}
-            style={{
-              cursor: "pointer",
-              padding: "10px",
-              margin: "5px 0",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              transition: "background-color 0.2s",
-            }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.backgroundColor = "#f5f5f5")
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.backgroundColor = "transparent")
-            }
           >
-            <div>
-              <strong>{ev.titulo}</strong> <br />
-              {ev.descricao} <br />
-              Data: {ev.data} <br />
-              Hora: {ev.hora}
+            <div className="event-content">
+              <h3 className="event-title">{ev.titulo}</h3>
+              <p className="event-description">{ev.descricao}</p>
+              <div className="event-details">
+                <span className="event-date">
+                  <i className="far fa-calendar"></i> 
+                  {ev.data}
+                </span>
+                <span className="event-time">
+                  <i className="far fa-clock"></i> 
+                  {ev.hora}
+                </span>
+              </div>
             </div>
           </li>
         ))}
