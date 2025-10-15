@@ -27,18 +27,18 @@ Sistema desenvolvido para gerenciar eventos de voluntariado no IFRS, permitindo 
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/IFRS-acao_voluntariado.git
+git clone https://github.com/Gian-vie/IFRS-acao_voluntariado.git
 ```
 
 2. Instale as dependências do frontend
 ```bash
-cd front\ jwt
+cd front jwt
 npm install
 ```
 
 3. Instale as dependências do backend
 ```bash
-cd back\ jwt
+cd back jwt
 npm install
 ```
 
@@ -49,13 +49,13 @@ npm install
 
 5. Inicie o backend
 ```bash
-cd back\ jwt
+cd back jwt
 npm start
 ```
 
 6. Inicie o frontend
 ```bash
-cd front\ jwt
+cd front jwt
 npm start
 ```
 

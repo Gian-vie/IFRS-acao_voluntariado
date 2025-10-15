@@ -96,7 +96,7 @@ a {
   text-align: center;
 } */
 
- /* register  */
+/* register  */
 
 .register-form {
   max-width: 400px;
@@ -242,7 +242,7 @@ Empilha os campos e alinha à esquerda
   padding: 2rem;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .event-info {
@@ -316,7 +316,7 @@ Empilha os campos e alinha à esquerda
   background: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .about-content h2 {
@@ -356,7 +356,7 @@ Empilha os campos e alinha à esquerda
   padding: 2rem;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .event-form-title {
@@ -433,4 +433,18 @@ textarea.form-input {
   padding: 0.75rem;
   background-color: #dcfce7;
   border-radius: 6px;
+}
+
+/*  videoLink */
+
+.videoLink {
+  display: inline-block;
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
