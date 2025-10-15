@@ -1,12 +1,92 @@
-# React + Vite
+# Sistema de Ação Voluntariado IFRS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📋 Sobre
+Sistema desenvolvido para gerenciar eventos de voluntariado no IFRS, permitindo que administradores cadastrem eventos e usuários possam se inscrever como voluntários.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Frontend
+- React.js
+- React Router DOM
+- Context API
+- JWT para autenticação
 
-## Expanding the ESLint configuration
+### Backend
+- Node.js
+- Express.js
+- MySQL
+- JWT
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Requisitos
+
+- Node.js 14+
+- MySQL 8+
+- NPM ou Yarn
+
+## 🔧 Instalação
+
+1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/IFRS-acao_voluntariado.git
+```
+
+2. Instale as dependências do frontend
+```bash
+cd front\ jwt
+npm install
+```
+
+3. Instale as dependências do backend
+```bash
+cd back\ jwt
+npm install
+```
+
+4. Configure o banco de dados
+- Crie um banco MySQL
+- Configure as credenciais no arquivo `.env`
+- Execute as migrations
+
+5. Inicie o backend
+```bash
+cd back\ jwt
+npm start
+```
+
+6. Inicie o frontend
+```bash
+cd front\ jwt
+npm start
+```
+
+## 🌟 Funcionalidades
+
+### Usuários Comuns
+- Visualizar eventos disponíveis
+- Registrar-se no sistema
+- Inscrever-se em eventos
+- Visualizar inscrições realizadas
+
+### Administradores
+- Todas as funcionalidades de usuários comuns
+- Criar novos eventos
+- Gerenciar eventos existentes
+- Visualizar lista de voluntários
+
+## 🔐 Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto backend:
+
+```env
+DB_HOST=localhost
+DB_USER=seu_usuario
+DB_PASS=sua_senha
+DB_NAME=acao_voluntariado
+JWT_SECRET=seu_secret
+```
+
+## 🤝 Contato
+
+Gian Vieceli - gianvieceli@gmail.com
+
+Link do Projeto: [https://github.com/Gian-vie/IFRS-acao_voluntariado.git](https://github.com/Gian-vie/IFRS-acao_voluntariado.git)
