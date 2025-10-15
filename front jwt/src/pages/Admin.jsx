@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { http } from "../api/http";
 import ButtonRegEvent from "../components/ButtonRegEvent";
+import "../styles/Admin.css"
+
 export default function Admin() {
   const [msg, setMsg] = useState("Carregando...");
 
@@ -12,10 +14,18 @@ export default function Admin() {
       .catch(() => setMsg("Acesso negado"));
   }, []);
   return (
-    <section className="card">
-      <h1>Área Administrativa</h1>
-      <p>{msg}</p>
-      <ButtonRegEvent />
-    </section>
+    <div className="admin-container">
+      <section className="admin-header">
+        <h1>Área Administrativa</h1>
+        <p className="welcome-message">{msg}</p>
+      </section>
+
+      <div className="admin-actions">
+        <h2>Gerenciamento de Eventos</h2>
+        <div className="admin-buttons">
+          <ButtonRegEvent />
+        </div>
+      </div>
+    </div>
   );
 }
