@@ -29,7 +29,7 @@ export default function Login() {
     }
   }
   return (
-    <section className="card">
+    <section className="card flex">
       <h1>Login</h1>
       {err && <p className="alert">{err}</p>}
       <form onSubmit={handleSubmit} className="form form--inline">
@@ -55,6 +55,11 @@ export default function Login() {
           {loading ? "Entrando..." : "Entrar"}
         </Button>
       </form>
+      <div className="register-section">
+        <Button type="button" onClick={() => navigate('/register')}>
+          Criar Conta
+        </Button>
+      </div>
     </section>
   );
 }
