@@ -11,6 +11,8 @@ import Forbidden from "./pages/Forbidden";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import AdminEventos from "./pages/AdminEventos";
+import EventDetails from "./pages/EventDetails";
+import Register from "./pages/Register";
 // (Opcional) Fallback simples para rotas inexistentes
 function NotFound() {
   return (
@@ -30,8 +32,10 @@ const router = createBrowserRouter([
     children: [
       // públicas
       { index: true, element: <Home /> },
+      { path: "public/event-list/:id", element: <EventDetails /> },
       { path: "about", element: <About /> },
       { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
       { path: "forbidden", element: <Forbidden /> },
       // protegida por autenticação (token)
       {
