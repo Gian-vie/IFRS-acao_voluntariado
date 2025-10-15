@@ -43,6 +43,32 @@ class PublicController {
         });
     }
   }
+  static async eventListByID(req, res) {
+    try {
+      const evento = await EventosModel.findById(req.params.id);
+
+      const eventosFormatados = evento ? [evento].map(evento => ({
+        ...evento,
+        data: new Date(evento.data).toISOString().split('T')[0],
+        hora: evento.hora.slice(0, 5),
+      })) : [];
+
+      const eventDataFormat = eventosFormatados.map(evento => ({
+        ...evento,
+        data: evento.data.split('-').reverse().join('/'),
+      }));
+
+      return res.status(200).json(eventDataFormat);
+    } catch (error) {
+      // Em caso de erro inesperado, retorna status 500 com a mensagem do erro
+      return res
+        .status(500)
+        .json({
+          message: "Erro ao carregar a lista de eventos",
+          error: error.message,
+        });
+    }
+  }
 }
 // Exporta o controlador para ser utilizado nas rotas públicas
 module.exports = PublicController;

@@ -17,6 +17,12 @@ router.get(
   authorizeRole("admin"),
   ProtectedController.adminOnly
 );
+router.post(
+  "/eventos/:id/inscricao",
+  authenticateToken,
+  ProtectedController.inscrever
+);
+
 router.get(
   "/admin/eventos",
   authenticateToken,
@@ -28,6 +34,12 @@ router.post(
   authenticateToken,
   authorizeRole("admin"),
   ProtectedController.registerEvent
+);
+
+router.get(
+  "/eventos/:id/inscricao",
+  authenticateToken,
+  ProtectedController.checkInscricao
 );
 // Define a rota GET /admin que chama o método adminOnly do ProtectedController
 module.exports = router;

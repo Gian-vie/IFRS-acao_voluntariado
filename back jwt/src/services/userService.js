@@ -34,12 +34,12 @@ class UserService {
     }
     // Gera o token JWT
     const token = jwt.sign(
-      { email: user.email, role: user.role },
+      { id: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
     // Retorna o token e o usuário para o controller
-    return { token, user: { email: user.email, role: user.role } };
+    return { token, user: { id: user.id, email: user.email, role: user.role } };
   }
 }
 module.exports = UserService;

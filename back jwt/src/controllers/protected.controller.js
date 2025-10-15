@@ -1,4 +1,6 @@
+const VoluntariosModel = require("../models/voluntariosModel");
 const EventosService = require("../services/eventosService");
+const VoluntariosService = require("../services/voluntarioService");
 
 // Controlador responsável por lidar com rotas protegidas por autenticação JWT
 class ProtectedController {
@@ -17,6 +19,38 @@ class ProtectedController {
         .json({ message: "Erro ao acessar o painel", error: error.message });
     }
   }
+  //verifica se o usuario ja se inscreveu nesse evento
+  static async checkInscricao(req, res) {
+    try {
+      const id_evento = req.params.id;
+      const id_usuario = req.user.id;
+
+      const inscricao = await VoluntariosModel.findInscricao(
+        id_usuario,
+        id_evento
+      );
+      return res.json({ inscrito: !!inscricao });
+    } catch (error) {
+      return res.status(400).json({
+        message: error.message,
+      });
+    }
+  }
+
+  //metodo de inscrição de voluntario em evento
+  static async inscrever(req, res) {
+    try {
+      const id_evento = req.params.id;
+      const id_usuario = req.user.id; // vem do middleware de autenticação
+
+      const result = await VoluntariosService.inscrever(id_usuario, id_evento);
+      return res.status(201).json(result);
+    } catch (error) {
+      return res.status(400).json({
+        message: error.message,
+      });
+    }
+  }
   // Método exclusivo para usuários com permissão de admin
   static adminOnly(req, res) {
     try {
@@ -27,12 +61,10 @@ class ProtectedController {
       });
     } catch (error) {
       // Em caso de erro inesperado, retorna erro interno do servidor
-      return res
-        .status(500)
-        .json({
-          message: "Erro ao acessar a área admin",
-          error: error.message,
-        });
+      return res.status(500).json({
+        message: "Erro ao acessar a área admin",
+        error: error.message,
+      });
     }
   }
   //metodo estatic que trata o registro de um novo evento

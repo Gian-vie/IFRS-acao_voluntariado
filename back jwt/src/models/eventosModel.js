@@ -8,17 +8,7 @@ class EventosModel {
   }
   // Busca todos os eventos
   static async findAll() {
-    const [rows] = await db.query(`
-  SELECT
-    id,
-    titulo,
-    descricao,
-    data,
-    hora
-  FROM
-    eventos
-  ORDER BY
-    data ASC, hora ASC`);
+    const [rows] = await db.query("SELECT * FROM eventos");
     return rows;
   }
   // Busca um evento pelo título
