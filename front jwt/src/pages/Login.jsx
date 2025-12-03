@@ -34,6 +34,7 @@ export default function Login() {
       {err && <p className="alert">{err}</p>}
       <form onSubmit={handleSubmit} className="form form--inline">
         <FormInput
+          id="email-input"
           label="E-mail"
           type="email"
           name="email"
@@ -43,6 +44,7 @@ export default function Login() {
           required
         />
         <FormInput
+          id="password-input"
           label="Senha"
           type="password"
           name="password"
@@ -51,7 +53,7 @@ export default function Login() {
           onChange={updateField}
           required
         />
-        <Button type="submit" disabled={loading}>
+        <Button type="submit" id="botao-enviar" disabled={loading}>
           {loading ? "Entrando..." : "Entrar"}
         </Button>
       </form>

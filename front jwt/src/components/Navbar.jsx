@@ -10,7 +10,7 @@ export default function Navbar() {
         {/* brand separado da lista de links */}
         <div className="brand">Ações IFRS</div>
         <ul className="nav-links">
-          <li>
+          <li id="home-link">
             <NavLink
               to="/"
               end
@@ -19,11 +19,11 @@ export default function Navbar() {
               Home
             </NavLink>
           </li>
-          <li>
+          <li id="about-link">
             <NavLink to="/about">About</NavLink>
           </li>
           {!user && (
-            <li>
+            <li id="login-link">
               <NavLink to="/login">Login</NavLink>
             </li>
           )}
